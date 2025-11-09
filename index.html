@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MoiPH Midman Service</title>
+<title>Book Your Midman — Moises Trajano Bitonio</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --txt:#fff7fb; --mut:#ccb9c1; --mut2:#a8989f;
   --green:#21d072; --blue:#1877f2; --discord:#5865f2;
   --ink:#09060a; --red1:#1a0f14; --red2:#120a10;
-  --border: rgba(255,100,140,.18); --ring: conic-gradient(#ff2b63,#ff6ea0,#ff2b63);
+  --border: rgba(255,100,140,.18);
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--ink);color:var(--txt);font-family:Poppins,system-ui,Segoe UI,Roboto,Arial,sans-serif;min-height:100%}
@@ -24,23 +24,34 @@ body::before{
 }
 @keyframes bgFloat{to{transform:translate3d(1.2%,-1.2%,0)}}
 
-.wrap{max-width:880px;margin:auto;padding:18px 14px 120px}
-.header{display:grid;place-items:center;margin-top:6px}
-.logo{width:min(42vw,160px);aspect-ratio:1/1;border-radius:999px;position:relative;display:grid;place-items:center;background:radial-gradient(120px 110px at 50% 50%, #0e0a0d 40%, #000 100%);box-shadow:0 0 0 8px rgba(0,0,0,.55)}
-.ring{position:absolute;inset:10px;border-radius:999px;background:var(--ring);filter:blur(.55px);-webkit-mask:radial-gradient(circle, transparent 61.5%, #000 63%);mask:radial-gradient(circle, transparent 61.5%, #000 63%);animation:spin 9s linear infinite;opacity:.55}
-@keyframes spin{to{transform:rotate(360deg)}}
-.logo img{width:82%;border-radius:999px;box-shadow:0 0 18px rgba(255,40,100,.28)}
-.brand{display:flex;gap:10px;align-items:center;justify-content:center;margin:10px 0 4px;font-weight:800;font-size:26px;text-shadow:0 0 10px rgba(255,70,120,.25)}
+.wrap{max-width:920px;margin:auto;padding:18px 14px 120px}
+.header{display:grid;place-items:center;margin-top:10px}
+.logo{
+  width:min(70vw,280px);aspect-ratio:1/1;border-radius:24px;
+  background:#0e0a0d;display:grid;place-items:center;
+  box-shadow:0 10px 40px rgba(255,40,100,.18), inset 0 0 0 1px rgba(255,255,255,.06);
+  overflow:hidden
+}
+.logo img{width:100%;height:100%;object-fit:cover}
+
+.nameRow{display:flex;gap:10px;align-items:center;justify-content:center;margin:14px 0 4px}
+.name{font-weight:800;font-size:26px;text-shadow:0 0 10px rgba(255,70,120,.25)}
 .badge{width:22px;height:22px;display:inline-block;filter: drop-shadow(0 0 10px rgba(24,119,242,.45))}
+.sub{opacity:.9;text-align:center;margin-bottom:14px}
 
-.sub{opacity:.9;text-align:center;margin-bottom:12px}
-.row{display:grid;gap:12px}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.a{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;padding:14px 16px;font-weight:800;text-decoration:none;color:#fff}
+.fb{background:var(--blue)}
+.dc{background:var(--discord)}
 
-.section{background:linear-gradient(180deg,var(--red1),var(--red2));border:1px solid var(--border);border-radius:18px;padding:14px;box-shadow:0 0 16px rgba(255,40,100,.22)}
+.section{background:linear-gradient(180deg,var(--red1),var(--red2));border:1px solid var(--border);border-radius:18px;padding:14px;box-shadow:0 0 16px rgba(255,40,100,.22);margin-top:12px}
 .h2{font-weight:800;margin:4px 0 10px;font-size:18px}
 .label{font-size:13px;color:#ccb9c1;margin:4px 2px 6px}
-.in{width:100%;border:1px solid rgba(255,120,160,.20);background:#0b090c;color:#fff;padding:14px;border-radius:14px;font-size:18px;outline:none;box-shadow:inset 0 0 14px rgba(255,20,80,.06), 0 0 12px rgba(255,40,100,.12)}
-.in:focus{border-color:#ff6aa1;box-shadow:0 0 0 3px rgba(255,60,110,.16)}
+.in, select{
+  width:100%;border:1px solid rgba(255,120,160,.20);background:#0b090c;color:#fff;
+  padding:14px;border-radius:14px;font-size:18px;outline:none;box-shadow:inset 0 0 14px rgba(255,20,80,.06), 0 0 12px rgba(255,40,100,.12)
+}
+.in:focus, select:focus{border-color:#ff6aa1;box-shadow:0 0 0 3px rgba(255,60,110,.16)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .box{background:linear-gradient(180deg,#1a1218,#120e13);border:1px solid rgba(255,120,160,.18);border-radius:16px;padding:12px;text-align:center}
 .box h5{margin:0 0 4px;font-size:12px;color:#ccb9c1}
@@ -48,35 +59,36 @@ body::before{
 .btn{display:inline-flex;align-items:center;gap:10px;border:none;border-radius:14px;padding:14px 16px;font-weight:800;letter-spacing:.2px;cursor:pointer;user-select:none}
 .pri{background:var(--green);color:#092112;box-shadow:0 18px 44px rgba(33,208,114,.24), inset 0 -6px 0 rgba(0,0,0,.12)}
 .copy{background:#27252c;color:#fff;border:1px solid rgba(255,255,255,.12)}
-.links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.a{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;padding:14px 16px;font-weight:800;text-decoration:none;color:#fff}
-.fb{background:var(--blue)}
-.dc{background:var(--discord)}
 .note{font-size:12px;color:#a8989f;margin-top:6px}
-
-.card{background:linear-gradient(180deg,#17141a,#120f14);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px;box-shadow:0 0 16px rgba(0,0,0,.25);margin-top:12px}
-.step{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start;padding:10px;border-bottom:1px dashed rgba(255,255,255,.08)}
-.step:last-child{border-bottom:none}
-.ico{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:#0f0d12;border:1px solid rgba(255,255,255,.10)}
-.em{font-size:18px}
 .kv{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .kv strong{font-weight:800}
-.center{text-align:center}
+
+.payRow{
+  display:flex;align-items:center;gap:12px;justify-content:space-between;
+  background:rgba(24,119,242,.08);border:1px solid rgba(24,119,242,.28);
+  padding:10px 12px;border-radius:12px;margin-top:10px
+}
+.payLeft{display:flex;align-items:center;gap:10px}
+.qrBtn,.copyBtn{display:inline-flex;align-items:center;gap:8px;background:rgba(24,119,242,.14);color:#eaf3ff;border:1px solid rgba(24,119,242,.38);padding:8px 12px;border-radius:10px;font-weight:800}
+
+.footer{margin-top:18px;text-align:center;color:#ccb9c1;background:linear-gradient(180deg,#17141a,#120f14);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px}
+
+#qrPopup{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:50}
+.cardPop{width:min(92vw,520px);background:#0f0d10;border:1px solid var(--border);border-radius:18px;padding:18px;text-align:center}
+.qrImg{max-width:86vw;max-height:70vh;border-radius:12px;border:1px solid rgba(255,255,255,.15);box-shadow:0 12px 36px rgba(0,0,0,.45)}
 
 @media (max-width:680px){ .grid2{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- header -->
+    <!-- HEADER -->
     <div class="header">
       <div class="logo">
-        <div class="ring"></div>
-        <!-- optional logo.png in same folder -->
-        <img src="logo.png" alt="Logo" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:40px;&quot;>MOI</div>'">
+        <img src="logo.png" alt="Logo" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:40px;padding:40px&quot;>MOI</div>'">
       </div>
-      <div class="brand">
-        MOISES BITONIO
+      <div class="nameRow">
+        <div class="name">MOISES TRAJANO BITONIO</div>
         <!-- verified badge -->
         <svg class="badge" viewBox="0 0 24 24" aria-hidden="true">
           <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2aa4ff"/><stop offset="1" stop-color="#1877f2"/></linearGradient></defs>
@@ -84,115 +96,101 @@ body::before{
           <path d="M9.2 12.6l-1.7-1.7a1 1 0 10-1.4 1.4l2.4 2.4c.4.4 1 .4 1.4 0l6.1-6.1a1 1 0 10-1.4-1.4l-5.4 5.4z" fill="#fff"/>
         </svg>
       </div>
-      <div class="sub">Midman Service • Safe trades with trust and transparency</div>
+      <div class="sub">Trusted Midman Service — Book now, deal safe.</div>
       <div class="links">
         <a class="a fb" href="https://m.me/mbitonio" target="_blank" rel="noopener">
-          <!-- FB icon -->
           <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.01 3.66 9.17 8.44 9.93v-7.02H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.93z"/></svg>
-          Facebook
+          Message Me
         </a>
         <a class="a dc" href="https://discord.gg/QkdVz5mh" target="_blank" rel="noopener">
-          <!-- Discord icon -->
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M20.3 4.4A16 16 0 0015.9 3l-.4.8a13.3 13.3 0 00-7 0L8.1 3A16 16 0 003.7 4.4C1.7 7.5 1 10.5 1.2 13.4a16 16 0 005.9 3l.8-1.3c-.4-.1-.7-.3-1-.4.1-.1.2-.2.3-.3 1.9.9 4 .9 5.9 0l.3.3c-.3.2-.6.3-1 .4l.8 1.3a16 16 0 005.9-3c.3-3-.5-5.9-2.8-9zM9.6 13c-.9 0-1.6-.8-1.6-1.7S8.7 9.6 9.6 9.6s1.6.8 1.6 1.7S10.5 13 9.6 13zm4.8 0c-.9 0-1.6-.8-1.6-1.7s.7-1.7 1.6-1.7 1.6.8 1.6 1.7-.7 1.7-1.6 1.7z"/></svg>
           Discord
         </a>
       </div>
     </div>
 
-    <!-- Calculator -->
+    <!-- BOOK YOUR MIDMAN -->
     <div class="section">
-      <div class="h2">Midman Fee Calculator</div>
-      <div class="label">Enter Amount (₱)</div>
+      <div class="h2">📓 Book Your Midman</div>
+
+      <div class="label">Game</div>
+      <select id="gameSel">
+        <option value="YMIR">YMIR</option>
+        <option value="MIR4">MIR4</option>
+        <option value="Others">Others</option>
+      </select>
+
+      <div class="label" style="margin-top:10px">Deal Amount (₱)</div>
       <input id="amt" class="in" inputmode="decimal" placeholder="e.g. 1500.00" autocomplete="off">
+
       <div class="grid2" style="margin-top:10px">
-        <div class="box"><h5>Fee</h5><div id="feeOut" class="big">—</div></div>
+        <div class="box"><h5>Estimated Fee</h5><div id="feeOut" class="big">—</div></div>
         <div class="box"><h5>Total to Send</h5><div id="totalOut" class="big">—</div></div>
       </div>
-      <div class="note">Rates: Below ₱1,000 → ₱50 • ₱1,000 and up → 5%</div>
+      <div class="note">Rates: Below ₱1,000 → ₱50 • ₱1,000 and up → 5%.</div>
 
-      <div class="h2" style="margin-top:14px">Copy Order Format</div>
-      <div class="label">Buyer Name</div>
+      <div class="label" style="margin-top:12px">Buyer Name</div>
       <input id="buyer" class="in" placeholder="Your full name">
+
       <div class="label" style="margin-top:8px">Seller Name</div>
       <input id="seller" class="in" placeholder="Seller full name / FB name">
-      <div class="label" style="margin-top:8px">Item / Account Details</div>
-      <input id="item" class="in" placeholder="e.g., MIR4 account, server, CP, etc.">
 
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-        <button id="copyBtn" class="btn copy">📋 Copy Format</button>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+        <button id="copyBtn" class="btn copy">📋 Copy Booking Format</button>
         <a id="msgBtn" class="btn pri" href="#" target="_blank" rel="noopener">💬 Send to Messenger</a>
       </div>
-      <div class="note">GCash: <b>09162466318 — MOISES BITONIO</b></div>
     </div>
 
-    <!-- Before Payment -->
+    <!-- PAYMENT -->
     <div class="section">
-      <div class="h2">📦 BEFORE SENDING PAYMENT (READ FIRST)</div>
-      <div class="card">
-        <div class="kv"><strong>SELLER:</strong> ✅ Send VALID ID + Selfie + Current Address (via DM) • ✅ No dummy / fake Facebook accounts</div>
-        <div class="kv" style="margin-top:6px"><strong>💸 MIDMAN FEE:</strong> Below ₱1,000 → ₱50 • ₱1,000 and up → 5%</div>
-        <div class="kv" style="margin-top:6px"><strong>GCASH DETAILS:</strong> 📱 09162466318 • 👤 MOISES BITONIO</div>
+      <div class="h2">💸 Payment Details</div>
+      <div class="payRow">
+        <div class="payLeft">
+          <div style="width:26px;height:26px;border-radius:999px;background:#1877f2;display:grid;place-items:center;color:#fff;font-weight:900">G</div>
+          <div>GCash • <strong id="gcnum">09162466318 — MOISES BITONIO</strong></div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button id="copyNum" class="copyBtn" type="button">Copy</button>
+          <button id="showQR" class="qrBtn" type="button">Show QR</button>
+        </div>
       </div>
+      <div class="note">Tip: Tap <b>Copy</b> to paste in GCash; use QR if available.</div>
     </div>
 
-    <!-- Process -->
+    <!-- RULES / PROCESS -->
     <div class="section">
-      <div class="h2">🛡️ MIDMAN PROCESS (Step-by-Step)</div>
-
-      <div class="card">
-        <div class="step">
-          <div class="ico"><span class="em">💵</span></div>
-          <div><b>Step 1:</b> Buyer sends payment to midman.</div>
-        </div>
-        <div class="step">
-          <div class="ico"><span class="em">📧</span></div>
-          <div><b>Step 2:</b> Seller sends the account Gmail &amp; Password to the buyer (via DM).</div>
-        </div>
-        <div class="step">
-          <div class="ico"><span class="em">🎮</span></div>
-          <div><b>Step 3:</b> Buyer logs in and checks the account in-game.</div>
-        </div>
-        <div class="step">
-          <div class="ico"><span class="em">📝</span></div>
-          <div><b>Step 4:</b> Buyer gives recovery email &amp; phone number to seller.</div>
-        </div>
-        <div class="step">
-          <div class="ico"><span class="em">🔐</span></div>
-          <div><b>Step 5:</b> Seller updates the Gmail recoveries:<br/>
-            1️⃣ Add buyer’s phone number and email as recovery<br/>
-            2️⃣ Turn ON 2-Step Verification
-          </div>
-        </div>
-        <div class="step">
-          <div class="ico"><span class="em">🧹</span></div>
-          <div><b>Step 6:</b> Buyer secures the account (remove all devices and social binds).</div>
-        </div>
-        <div class="step">
-          <div class="ico"><span class="em">📹</span></div>
-          <div><b>Step 7:</b> Seller sends video proof:<br/>
-            • Logging out in-game (PC &amp; Mobile)<br/>
-            • Removing Gmail from devices
-          </div>
-        </div>
-        <div class="step">
-          <div class="ico"><span class="em">✅</span></div>
-          <div><b>Step 8:</b> Once buyer confirms the account is safe → midman releases the payment.</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="h2">⚠️ REMINDERS</div>
-        <ul style="margin:6px 0 0 18px;line-height:1.5">
-          <li>Gmail can still be recovered within 7–8 days.</li>
-          <li>If the seller tries to recover the Gmail, they’ll be posted in groups.</li>
-          <li>MM fee is non-refundable if the deal is canceled.</li>
-          <li>Midman is not responsible for accounts linked to multiple socials/devices.</li>
-          <li>Always double-check everything before saying DONE.</li>
-        </ul>
-        <div class="note center" style="margin-top:8px">🫡 Safe trades start with <b>TRUST</b> and <b>TRANSPARENCY</b>!</div>
+      <div class="h2">🛡️ Midman Process</div>
+      <ol style="margin:6px 0 0 18px;line-height:1.6">
+        <li>Buyer sends payment to midman.</li>
+        <li>Seller sends account Gmail & Password to buyer (via DM).</li>
+        <li>Buyer logs in and checks the account in-game.</li>
+        <li>Buyer provides recovery email & phone number to seller.</li>
+        <li>Seller adds buyer recoveries & turns ON 2-Step Verification.</li>
+        <li>Buyer secures the account (remove devices & social binds).</li>
+        <li>Seller sends video proof (logging out + removing Gmail from devices).</li>
+        <li>Once buyer confirms, midman releases payment.</li>
+      </ol>
+      <div class="note" style="margin-top:8px">
+        ⚠ Gmail can still be recovered within 7–8 days. MM fee is non-refundable if the deal is canceled.
       </div>
     </div>
 
+    <!-- THANK YOU -->
+    <div class="footer">
+      Maraming salamat sa tiwala! — <b>Moises Trajano Bitonio</b>.  
+      Safe trades start with <b>TRUST</b> and <b>TRANSPARENCY</b>. 💙
+    </div>
+  </div>
+
+  <!-- QR POPUP -->
+  <div id="qrPopup">
+    <div class="cardPop">
+      <h3>GCash QR</h3>
+      <img class="qrImg" src="gcash-qr.png" alt="GCash QR">
+      <div style="margin-top:10px">
+        <button id="qrClose" class="btn copy">Close</button>
+      </div>
+    </div>
   </div>
 
 <script>
@@ -201,9 +199,14 @@ const feeOut = document.getElementById('feeOut');
 const totalOut = document.getElementById('totalOut');
 const buyer = document.getElementById('buyer');
 const seller = document.getElementById('seller');
-const item = document.getElementById('item');
+const gameSel = document.getElementById('gameSel');
 const copyBtn = document.getElementById('copyBtn');
 const msgBtn = document.getElementById('msgBtn');
+const gcnum = document.getElementById('gcnum');
+const copyNum = document.getElementById('copyNum');
+const showQR = document.getElementById('showQR');
+const qrPopup = document.getElementById('qrPopup');
+const qrClose = document.getElementById('qrClose');
 
 function parseAmt(v){ return parseFloat((v||'').toString().replace(/,/g,'')) || 0; }
 function peso(n){ return '₱' + (Number(n)||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
@@ -218,26 +221,26 @@ function compute(){
   return {a,fee,total};
 }
 amt.addEventListener('input', ()=>{
-  // keep only numbers and dot
   amt.value = amt.value.replace(/[^\d.]/g,'');
   compute();
 });
+compute();
 
 function buildMessage(){
   const {a,fee,total} = compute();
   const lines = [
-    'MIDMAN REQUEST',
+    'BOOK MIDMAN',
+    'Game: ' + gameSel.value,
     'Buyer: ' + (buyer.value.trim()||''),
     'Seller: ' + (seller.value.trim()||''),
-    'Item: ' + (item.value.trim()||''),
     '',
-    'Amount: ' + peso(a),
-    'Midman Fee: ' + peso(fee) + (a<1000?' (flat 50)':' (5%)'),
-    'Total to Send: ' + peso(total),
+    'Amount: ' + (a?peso(a):'—'),
+    'Estimated Fee: ' + (a?peso(fee)+ (a<1000?' (flat 50)':' (5%)'):'—'),
+    'Total to Send: ' + (a?peso(total):'—'),
     '',
     'GCash: 09162466318 — MOISES BITONIO',
     '',
-    'I agree to follow the Midman Process steps.'
+    'I agree to the Midman Process.'
   ];
   return lines.join('\n');
 }
@@ -245,16 +248,27 @@ function buildMessage(){
 copyBtn.addEventListener('click', ()=>{
   const msg = buildMessage();
   navigator.clipboard.writeText(msg).then(()=>{
-    copyBtn.textContent = '✔ Copied';
-    setTimeout(()=>copyBtn.textContent='📋 Copy Format',1200);
-  }).catch(()=>{ alert('Copy failed.'); });
+    copyBtn.textContent='✔ Copied';
+    setTimeout(()=>copyBtn.textContent='📋 Copy Booking Format',1200);
+  }).catch(()=>alert('Copy failed.'));
 });
 
-msgBtn.addEventListener('click', (e)=>{
+msgBtn.addEventListener('click', ()=>{
   const text = encodeURIComponent(buildMessage());
   msgBtn.href = 'https://m.me/mbitonio?text=' + text;
 });
-compute();
+
+copyNum.addEventListener('click', ()=>{
+  const t = gcnum.textContent.replace(/\s+/g,' ').trim();
+  navigator.clipboard.writeText(t).then(()=>{
+    copyNum.textContent='✔ Copied';
+    setTimeout(()=>copyNum.textContent='Copy',1000);
+  });
+});
+
+showQR.addEventListener('click', ()=>{ qrPopup.style.display='grid'; });
+qrClose.addEventListener('click', ()=>{ qrPopup.style.display='none'; });
+qrPopup.addEventListener('click', (e)=>{ if(e.target===qrPopup) qrPopup.style.display='none'; });
 </script>
 </body>
 </html>
